@@ -1,0 +1,7 @@
+libft.a
+check_libft
+obj
+*.gcno
+*.gcda
+*.swp
+covr
