@@ -69,7 +69,7 @@ $(COVRDIR):
 	@echo "$(GREEN)>>Created ./$@ directory! \t\t$(RESET)"
 
 .PHONY: tests
-tests: $(SRC) $(TESTS) $(COVRDIR) clean_coverage_objects
+tests: $(SRC) $(TESTS) $(COVRDIR) clean_covr
 	@$(CC) $(SRC) $(TESTS) $(FLAGS) $(COVRFLAGS) -I$(INCDIR) -lcheck -o $(TESTSNAME) 
 	@echo "$(GREEN)>Tests created !$(RESET)"
 	@echo "$(YELLOW)>Running tests...$(RESET)"
@@ -86,7 +86,7 @@ clean_covr:
 .PHONY: clean
 clean:
 	@echo "$(RED)>Removing object files... $(RESET)"
-	@/bin/rm -rf $(OBJDIR)/* $(TESTSCOVOBJ) $(TESTSCOVREPORT)
+	@/bin/rm -rf $(OBJDIR)/* $(TESTSCOVOBJ) $(TESTSCOVREPORT) *.gcda *.gcno
 	@echo "$(GREEN)>Object files removed!\n$(RESET)"
 
 .PHONY: fclean

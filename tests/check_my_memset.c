@@ -1,11 +1,10 @@
 #include <check.h>               
 #include "libft.h"        
-#include <stdlib.h>
 #include <string.h>
 
 START_TEST(test_my_memset) {
-  char my_memset_string[10]; 
-  char memset_string[10]; 
+  char my_memset_string[10] = "0123456789"; 
+  char memset_string[10] = "0123456789"; 
 
   my_memset_string[9] = '\0';
   memset_string[9] = '\0';
@@ -29,16 +28,3 @@ Suite *my_memset_suite(void) {
   return s;
 }
 
-int main(void) {
-  int no_failed = 0;                   
-  Suite *s;                            
-  SRunner *runner;                     
-
-  s = my_memset_suite();                   
-  runner = srunner_create(s);          
-
-  srunner_run_all(runner, CK_NORMAL);  
-  no_failed = srunner_ntests_failed(runner); 
-  srunner_free(runner);                      
-  return (no_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;  
-}
